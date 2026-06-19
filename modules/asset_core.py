@@ -1,5 +1,8 @@
+import os
+import subprocess
+
+class AssetManager:
     def __init__(self):
-        # We define full repository paths to ensure the logic doesn't guess the org
         self.library_repos = [
             "docker-library/official-images",
             "docker-library/docs",
@@ -21,7 +24,6 @@
 
             if not os.path.exists(target_dir):
                 print(f"[*] Cloning {repo_path}...")
-                # Use --depth 1 to speed up cloning and reduce failure rates
                 subprocess.run(["git", "clone", "--depth", "1", url, target_dir], check=True)
             else:
                 print(f"[*] Updating {repo_path}...")
