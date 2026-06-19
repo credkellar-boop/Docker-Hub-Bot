@@ -28,3 +28,4 @@ class AssetManager:
             else:
                 print(f"[*] Updating {repo_path}...")
                 subprocess.run(["git", "-C", target_dir, "pull"], check=True)
+
