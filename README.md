@@ -1,4 +1,7 @@
 # 🤖 Docker-Hub-Bot Automation Core
+<p align="center">
+  <img src="1781861706479.png" alt="Profile Image" width="400"/>
+</p>
 
 [![GitHub Repo](https://img.shields.io/badge/GitHub-credkellar--boop%2FDocker--Hub--Bot-blue?logo=github)](https://github.com/credkellar-boop/Docker-Hub-Bot)
 [![Python Version](https://img.shields.io/badge/Python-3.11+-blue.svg?logo=python)](https://python.org)
