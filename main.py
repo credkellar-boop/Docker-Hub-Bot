@@ -1,7 +1,7 @@
 import sys
 import logging
 import subprocess
-# Use the older import style that your GitHub environment already has installed
+# Reverted to the older import that your GitHub runner already has installed
 import google.generativeai as genai
 
 # Local module imports
@@ -34,7 +34,6 @@ class DockerHubBot:
         health = HealthMonitor()
 
         # 2. Pre-flight connectivity check
-        # Ensures the bot only attempts actions if connections are viable
         active_nodes = ["DockerHub", "GitHub", "Telegram", "Slack"]
         health.check_platform_connectivity(active_nodes)
 
@@ -68,8 +67,7 @@ class DockerHubBot:
         OUTPUT ONLY the raw file contents wrapped in tags like ---DOCKERFILE---, ---COMPOSE---, etc.
         """
 
-        # 3. Reverted to legacy SDK code to match your current environment.
-        # It automatically looks for the GEMINI_API_KEY environment variable.
+        # Using the legacy generation syntax so it runs perfectly on your current setup
         model = genai.GenerativeModel('gemini-1.5-flash')
         response = model.generate_content(prompt)
 
