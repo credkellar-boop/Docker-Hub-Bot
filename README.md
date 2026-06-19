@@ -3,6 +3,7 @@
 ![GitHub issues](https://img.shields.io/github/issues/credkellar-boop/Docker-Hub-Bot?style=flat-square&logo=github)
 ![Docker Pulls](https://img.shields.io/docker/pulls/library/docker?style=flat-square&logo=docker)
 ![License](https://img.shields.io/github/license/credkellar-boop/Docker-Hub-Bot?style=flat-square&logo=opensourceinitiative)
+
 Docker-Hub-Bot is an **Autonomous AI Ecosystem Orchestrator** designed to unify, audit, and govern container infrastructure. It bridges the gap between automated repository management and secure legal/compliance operations.
 ---
 ## 🛠 Technology Stack & Expertise
