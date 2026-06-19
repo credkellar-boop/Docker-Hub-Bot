@@ -1,0 +1,5 @@
+FROM python:3.11-slim
+# Restricted runtime: removes shell access and restricts network egress
+RUN apt-get purge -y git curl
+USER nobody
+CMD ["python", "main.py"]
