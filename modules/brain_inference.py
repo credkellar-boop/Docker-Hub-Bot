@@ -1,5 +1,5 @@
 import os
-import google.generativeai as genai
+from google import genai
 
 class BrainInference:
     def __init__(self):
