@@ -26,3 +26,30 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+import argparse
+from modules.ecosystem_publisher import EcosystemPublisher
+
+def main():
+    parser = argparse.ArgumentParser(description="Docker-Hub-Bot Automation CLI")
+    parser.add_argument("--release", type=str, help="Tag version for GitHub release (e.g. v1.0.0)")
+    parser.add_argument("--push-hub", type=str, help="Docker Hub repository name to sync documentation")
+    
+    args = parser.parse_args()
+    publisher = EcosystemPublisher()
+
+    if args.release:
+        # Programmatically triggers release pipeline
+        with open("README.md", "r") as f:
+            desc = f.read()
+        # Change 'your-username/repo' to match your path configuration
+        publisher.publish_github_release("credkellar-boop/Docker-Hub-Bot", args.release, desc)
+
+    if args.push_hub:
+        with open("README.md", "r") as f:
+            desc = f.read()
+        publisher.update_docker_hub_readme(args.push_hub, desc)
+
+if __name__ == "__main__":
+    main()
+    
