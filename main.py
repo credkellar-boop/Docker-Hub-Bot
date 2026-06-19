@@ -1,39 +1,44 @@
-import os
-import subprocess
-import google.generativeai as genai
+import sys
+import logging
+from cli import main as cli_runner
+from utils.logger import setup_logger
+from modules.governance_node import GovernanceNode
+from modules.health_monitor import HealthMonitor
+from modules.asset_core import AssetManager
 
-# Configure the Brain Module
-genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
-model = genai.GenerativeModel('gemini-1.5-pro')
+def bootstrap():
+    """Initializes the autonomous ecosystem and starts the execution loop."""
+    logger = setup_logger()
+    logger.info("Initializing Docker-Hub-Bot Autonomous Ecosystem...")
 
-class DockerHubBot:
-    def __init__(self):
-        # Target repos to unify the docker-library ecosystem
-        self.library_repos = [
-            "docker-library-bot",
-            "docker-library/official-images",
-            "docker-library/docs",
-            "docker-library/repo-info",
-            "docker-library-transitioner",
-            "docker-library/faq"
-        ]
+    # 1. Governance & Health Check: Establishing the safety net
+    governance = GovernanceNode()
+    health = HealthMonitor()
+    
+    # 2. Pre-flight connectivity check
+    # Ensures the bot only attempts actions if connections are viable
+    active_nodes = ["DockerHub", "GitHub", "Telegram", "Slack"]
+    health.check_platform_connectivity(active_nodes)
 
-    def bootstrap_assets(self):
-        """Asset Module: Synchronizes the core docker-library repositories."""
-        print("[*] Initializing Asset Module...")
-        for repo_path in self.library_repos:
-            repo_name = repo_path.split("/")[-1]
-            if not os.path.exists(repo_name):
-                # Handles both standalone users and the docker-library org
-                org = "docker-library" if "/" not in repo_path else repo_path.split("/")[0]
-                url = f"https://github.com/{org}/{repo_name}.git"
-                subprocess.run(["git", "clone", url])
+    # 3. Execution Logic
+    try:
+        # Check if the user passed CLI arguments (e.g., --scout or --audit)
+        if len(sys.argv) > 1:
+            logger.info(f"Executing command: {' '.join(sys.argv[1:])}")
+            cli_runner()
+        else:
+            # Default "Heartbeat" Behavior: Sync assets if no commands provided
+            logger.info("No specific arguments detected. Triggering standard asset sync...")
+            AssetManager().sync_ecosystem()
+            logger.info("Heartbeat sync complete. System awaiting commands.")
+            
+    except Exception as e:
+        logger.error(f"Critical System Failure in Ecosystem Loop: {e}")
+        # Governance Node handles reporting failures to platform admins if necessary
+        sys.exit(1)
 
-    def secure_environment(self, image_name):
-        """Security Module: Automates vulnerability scanning."""
-        print(f"[*] Security Module auditing {image_name}...")
-        subprocess.run(["docker", "scout", "quickview", image_name])
-
+if __name__ == "__main__":
+    bootstrap()
     def brain_search_and_install(self, query):
         """Brain Module: Gemini searches, validates, and provisions environments."""
         print(f"[*] Brain Module analyzing Docker Hub for: {query}")
