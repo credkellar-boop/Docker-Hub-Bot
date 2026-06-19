@@ -1,0 +1,5 @@
+{
+    "incidents": [
+        {"platform": "Malicious-Sync-Hub", "date": "2026-06-19", "report_path": "data/legal/incident_msh.txt"}
+    ]
+}
