@@ -1,0 +1,5 @@
+{
+    "contact_email": "legal-counsel@yourdomain.com",
+    "escalation_threshold": "HIGH",
+    "retention_policy_days": 365
+}
