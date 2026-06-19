@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  docker-hub-bot:
+    build: .
+    container_name: docker-hub-bot-service
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    volumes:
+      # Mount the Docker socket to allow Scout/Builds inside the container
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data:/app/data
+    restart: unless-stopped
