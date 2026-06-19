@@ -1,0 +1,5 @@
+{
+    "GitHub": {"mode": "auto", "required_steps": 1},
+    "DevNetwork-Beta": {"mode": "manual", "required_steps": 2},
+    "New-Platform-X": {"mode": "auto", "required_steps": 1}
+}
