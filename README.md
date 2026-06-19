@@ -28,23 +28,25 @@ Managing developer hub integrations and maintaining active repositories across d
 
 ---
 
+ 
 ## 🛠 Tech Stack & Paradigms
 
 ### 💻 Languages ![Languages](https://img.shields.io/badge/Core-Languages-blueviolet?style=flat-square)
-* **Python 3.11+** (Core logic, AI inference, Subprocess automation)
-* **Shell / Bash** (CI/CD, Makefiles)
-* **YAML** (Docker Compose, Infinite Zero Deployments)
-* **JSON** (Ledger management, Inbox caching, Legal strategies)
+* **Python 3.11+** ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python&logoColor=white) — Core logic, AI inference, Subprocess automation.
+* **Shell / Bash** ![Bash](https://img.shields.io/badge/Shell_Script-121011?style=flat&logo=gnu-bash&logoColor=white) — CI/CD pipelines, automated execution scripts, and workflow entrypoints.
+* **YAML** ![YAML](https://img.shields.io/badge/YAML-CB171E?style=flat&logo=yaml&logoColor=white) — Docker Compose definitions and GitHub Actions automation orchestration.
+* **JSON** ![JSON](https://img.shields.io/badge/JSON-000000?style=flat&logo=json&logoColor=white) — Ledger management, inbox caching, and dynamic legal compliance strategies.
 
 ### ☁️ Cloud & A.I. Stack ![Cloud & AI Stack](https://img.shields.io/badge/Tech-Cloud_%26_A.I.-00ADD8?style=flat-square)
-* **Google Gemini API SDK (`gemini-1.5-pro` & `gemini-1.5-flash`):** Powers the core reasoning engine. Used for complex legal text parsing, secure code generation, and crafting personalized outreach communications.
-* **Docker Hub API & GitHub API:** For programmatic repository synchronization, automated pulling/pushing, and release management without human intervention.
+* **Google Gemini API SDK** ![Gemini](https://img.shields.io/badge/Google_Gemini-8E75FF?style=flat&logo=googlegemini&logoColor=white) — Powers the core reasoning engine (`gemini-1.5-pro` & `gemini-1.5-flash`). Used for complex legal text parsing, secure source generation, and crafting communication strategies.
+* **Docker Hub API** ![Docker Hub](https://img.shields.io/badge/Docker_Hub-2496ED?style=flat&logo=docker&logoColor=white) — Programmatic synchronization, automated multi-container uploads, and ecosystem target evaluation.
+* **GitHub API** ![GitHub API](https://img.shields.io/badge/GitHub_API-181717?style=flat&logo=github&logoColor=white) — Handles headless platform synchronization, active release workflows, and downstream environment updates.
 
 ### 🛡️ Infrastructure & Security Paradigms ![Infra & Security](https://img.shields.io/badge/Ops-Infra_%26_Security-success?style=flat-square)
-* **Containerized Execution:** Pure Dockerized environment (`Dockerfile.hardened`).
-* **Vulnerability Auditing:** Native integration with **Docker Scout** to actively scan base images and dependencies for known CVEs.
-* **Automated Legal Defense:** Programmatic incident reporting and secure SMTP-based C&D dispatching upon breach detection.
-* **Zero-Trust Network:** Employs watchdog timers and cross-cluster sync to isolate malicious actors and drop connections to non-compliant networks.
+* **Containerized Execution** ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white) — Pure sandboxed operational environments using custom hardened build instructions (`Dockerfile.hardened`).
+* **Vulnerability Auditing** ![Docker Scout](https://img.shields.io/badge/Docker_Scout-2496ED?style=flat&logo=docker&logoColor=white) — Native runtime integration with Docker Scout to actively scan base image layers and external software stacks for high-risk CVEs.
+* **Automated Legal Defense** ![Legal Framework](https://img.shields.io/badge/SecOps-Legal_Defense-E63946?style=flat) — Programmatic risk assessment engines that catch non-compliant terms and automatically dispatch Cease & Desist orders via authenticated SMTP endpoints.
+* **Zero-Trust Network** ![Zero Trust](https://img.shields.io/badge/Security-Zero_Trust-1D3557?style=flat) — Employs independent watchdog monitors and isolation routines to isolate malicious target points and pull back connection lanes dynamically.
 
 ---
 
