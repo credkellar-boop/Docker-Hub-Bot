@@ -88,3 +88,4 @@ if __name__ == "__main__":
 
     # Example execution
     bot.brain_search_and_install("high-throughput rust development environment")
+
