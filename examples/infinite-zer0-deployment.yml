@@ -1,0 +1,22 @@
+---COMPOSE---
+version: '3.8'
+
+services:
+  infinite-zer0-node:
+    image: rust:1.75-slim
+    container_name: infinite-zer0-execution-layer
+    working_dir: /usr/src/app
+    environment:
+      - RUST_ENV=production
+      - EXECUTION_THREADS=8 # Optimized for high-throughput 10k TPS environments
+    volumes:
+      - ./src:/usr/src/app/src
+      - cargo-cache:/usr/local/cargo/registry
+    command: >
+      bash -c "cargo install infinite-zer0 && infinite-zer0 --parallel-mode"
+    security_opt:
+      - no-new-privileges:true
+    restart: on-failure
+
+volumes:
+  cargo-cache:
