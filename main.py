@@ -1,7 +1,7 @@
 import sys
 import logging
 import subprocess
-# Reverted to the older import that your GitHub runner already has installed
+# This matches the package already installed in your GitHub Actions runner
 import google.generativeai as genai
 
 # Local module imports
@@ -10,7 +10,7 @@ from modules.governance_node import GovernanceNode
 from modules.health_monitor import HealthMonitor
 from modules.asset_core import AssetManager
 
-# 1. Define logger directly in main.py to fix the ModuleNotFoundError
+# Embedded logger to completely bypass the missing utils folder error
 def setup_logger():
     logging.basicConfig(
         level=logging.INFO,
@@ -20,7 +20,6 @@ def setup_logger():
 
 logger = setup_logger()
 
-# 2. Wrap functionality in a proper class to fix the 'self' scoping errors
 class DockerHubBot:
     def __init__(self):
         pass
@@ -29,7 +28,7 @@ class DockerHubBot:
         """Initializes the autonomous ecosystem and starts the execution loop."""
         logger.info("Initializing Docker-Hub-Bot Autonomous Ecosystem...")
 
-        # 1. Governance & Health Check: Establishing the safety net
+        # 1. Governance & Health Check
         governance = GovernanceNode()
         health = HealthMonitor()
 
@@ -39,12 +38,10 @@ class DockerHubBot:
 
         # 3. Execution Logic
         try:
-            # Check if the user passed CLI arguments (e.g., --scout or --audit)
             if len(sys.argv) > 1:
                 logger.info(f"Executing command: {' '.join(sys.argv[1:])}")
                 cli_runner()
             else:
-                # Default "Heartbeat" Behavior: Sync assets if no commands provided
                 logger.info("No specific arguments detected. Triggering standard asset sync...")
                 AssetManager().sync_ecosystem()
                 logger.info("Heartbeat sync complete. System awaiting commands.")
@@ -67,7 +64,7 @@ class DockerHubBot:
         OUTPUT ONLY the raw file contents wrapped in tags like ---DOCKERFILE---, ---COMPOSE---, etc.
         """
 
-        # Using the legacy generation syntax so it runs perfectly on your current setup
+        # Using the legacy model generation syntax to prevent library errors
         model = genai.GenerativeModel('gemini-1.5-flash')
         response = model.generate_content(prompt)
 
@@ -82,10 +79,7 @@ class DockerHubBot:
 
 
 if __name__ == "__main__":
-    # Initialize Docker-Hub-Bot
+    # Initialize and execute Docker-Hub-Bot cleanly
     bot = DockerHubBot()
     bot.bootstrap_assets()
-
-    # Example execution
     bot.brain_search_and_install("high-throughput rust development environment")
-
