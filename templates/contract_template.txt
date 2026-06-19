@@ -1,0 +1,20 @@
+====================================================================
+SIMPLE BOT INTEGRATION AGREEMENT (v1.0)
+====================================================================
+PARTIES:
+- Provider: Docker-Hub-Bot Automation Core
+- Platform: [TARGET_PLATFORM_NAME]
+
+TERMS:
+1. SCOPE: The Bot will autonomously post security updates, repository 
+   metrics, and infrastructure definitions to the Platform.
+2. COMPLIANCE: The Bot agrees to strictly respect rate limits, anti-spam 
+   policies, and developer terms of service.
+3. VALUE EXCHANGE: The Bot delivers automated, high-quality technical 
+   insights to the Platform's ecosystem in exchange for secure API access.
+4. TERMINATION: Either party may revoke this connection at any time by 
+   invalidating tokens or disabling webhooks.
+
+SIGNED ELECTRONICALLY BY: Docker-Hub-Bot Core Execution Engine
+ACCEPTED BY TARGET: Pending API Token Validation
+====================================================================
